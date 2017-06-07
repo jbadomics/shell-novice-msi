@@ -32,7 +32,9 @@ Most of the time, you will use a command line interface (CLI; topic of this less
 
 To establish an interactive SSH connection to an MSI lab node, complete the following three steps:
 
-1.  *  **Windows users:** With PuTTY configured, complete steps 9-11 from [these instructions](https://www.msi.umn.edu/support/faq/how-do-i-configure-putty-connect-msi-unix-systems). When prompted, enter your X.500 and password.
+1.  Connect to MSI via SSH
+
+    *  **Windows users:** With PuTTY configured, complete steps 9-11 from [these instructions](https://www.msi.umn.edu/support/faq/how-do-i-configure-putty-connect-msi-unix-systems). When prompted, enter your X.500 and password.
     *  **Mac/Linux users:** In Terminal, type
     
     ~~~
@@ -68,8 +70,9 @@ To establish an interactive SSH connection to an MSI lab node, complete the foll
     > **NOTE:** From this point forward, all commands and instructions in this lesson apply to all learners regardless of their local machine's underlying operating system (Mac, Windows, or Linux).
     {: .callout}
 
-2.  **Within your existing SSH connection to the login node, type**
+2.  **Connect to the lab cluster**
 
+    Within your existing SSH connection to the login node, type
     ~~~
     % ssh lab
     ~~~
