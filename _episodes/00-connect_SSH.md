@@ -32,7 +32,7 @@ Most of the time, you will use a command line interface (CLI; topic of this less
 
 To establish an interactive SSH connection to an MSI lab node, complete the following three steps:
 
-**1.**  *  **Windows users:** With PuTTY configured, complete steps 9-11 from [these instructions](https://www.msi.umn.edu/support/faq/how-do-i-configure-putty-connect-msi-unix-systems). When prompted, enter your X.500 and password.
+1.  *  **Windows users:** With PuTTY configured, complete steps 9-11 from [these instructions](https://www.msi.umn.edu/support/faq/how-do-i-configure-putty-connect-msi-unix-systems). When prompted, enter your X.500 and password.
     *  **Mac/Linux users:** In Terminal, type
     
     ~~~
@@ -68,7 +68,7 @@ To establish an interactive SSH connection to an MSI lab node, complete the foll
     > **NOTE:** From this point forward, all commands and instructions in this lesson apply to all learners regardless of their local machine's underlying operating system (Mac, Windows, or Linux).
     {: .callout}
 
-**2.  Within your existing SSH connection to the login node, type**
+2.  **Within your existing SSH connection to the login node, type**
 
     ~~~
     % ssh lab
@@ -82,7 +82,7 @@ To establish an interactive SSH connection to an MSI lab node, complete the foll
 
     Note how the node to which I am now connected has changed - in this case to `labqi046`.
 
-**3.  Launch a 4-hour interactive session**
+3.  **Launch a 4-hour interactive session**
 
     MSI uses PBS/Torque to automatically schedule and queue jobs according to several factors including user priority and available compute resources/nodes. Generally speaking, a **job** is a set of instructions (i.e. commands) that you wish to run, and these instructions can either be specified in advance (non-interactively, via a PBS script) or on-the-fly (interactively). Interactive sessions are especially useful when
     *   you don't know the exact set of commands you wish to run
