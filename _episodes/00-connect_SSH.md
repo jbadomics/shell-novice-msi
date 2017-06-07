@@ -70,49 +70,49 @@ To establish an interactive SSH connection to an MSI lab node, complete the foll
 
 2.  Within your existing SSH connection to the login node, type
 
-~~~
-% ssh lab
-~~~
-{: .bash}
+    ~~~
+    % ssh lab
+    ~~~
+    {: .bash}
 
-~~~
-jbadalam@labqi046 [~] %
-~~~
-{: .output}
+    ~~~
+    jbadalam@labqi046 [~] %
+    ~~~
+    {: .output}
 
-Note how the node to which I am now connected has changed - in this case to `labqi046`.
+    Note how the node to which I am now connected has changed - in this case to `labqi046`.
 
 3.  Launch a 4-hour interactive session
 
-MSI uses PBS/Torque to automatically schedule and queue jobs according to several factors including user priority and available compute resources/nodes. Generally speaking, a **job** is a set of instructions (i.e. commands) that you wish to run, and these instructions can either be specified in advance (non-interactively, via a PBS script) or on-the-fly (interactively). Interactive sessions are especially useful when
-*   you don't know the exact set of commands you wish to run
-*   you want to explore your data and experiment with different tools
-*   you do not need more compute resources than are available on a lab node
+    MSI uses PBS/Torque to automatically schedule and queue jobs according to several factors including user priority and available compute resources/nodes. Generally speaking, a **job** is a set of instructions (i.e. commands) that you wish to run, and these instructions can either be specified in advance (non-interactively, via a PBS script) or on-the-fly (interactively). Interactive sessions are especially useful when
+    *   you don't know the exact set of commands you wish to run
+    *   you want to explore your data and experiment with different tools
+    *   you do not need more compute resources than are available on a lab node
 
-To launch your interactive session, type
+    To launch your interactive session, type
 
-~~~
-% qsub -I -q lab -l nodes=1:ppn=16;mem=4gb,walltime=4:00:00
-~~~
-{: .bash}
+    ~~~
+    % qsub -I -q lab -l nodes=1:ppn=16;mem=4gb,walltime=4:00:00
+    ~~~
+    {: .bash}
 
-~~~
-qsub: waiting for job 530694.nokomis0015.msi.umn.edu to start
-qsub: job 530694.nokomis0015.msi.umn.edu ready
+    ~~~
+    qsub: waiting for job 530694.nokomis0015.msi.umn.edu to start
+    qsub: job 530694.nokomis0015.msi.umn.edu ready
 
-jbadalam@labc02 [~] % 
-~~~
-{: .output}
+    jbadalam@labc02 [~] % 
+    ~~~
+    {: .output}
 
-This command establishes an interactive session with the `-I` argument (capital 'eye'), and the `-l` argument (lowercase 'el') is used to request the physical computer resources you need. For this lesson, we need only 1 node with 4 GB of memory for a total of 4 hours (specified as HH:MM::SS). For other, more intensive jobs, you may need to request additional resources and/or walltime. Alternatively (beyond the scope of this lesson), you can select other job **queues** which provide additional flexibilty.
+    This command establishes an interactive session with the `-I` argument (capital 'eye'), and the `-l` argument (lowercase 'el') is used to request the physical computer resources you need. For this lesson, we need only 1 node with 4 GB of memory for a total of 4 hours (specified as HH:MM::SS). For other, more intensive jobs, you may need to request additional resources and/or walltime. Alternatively (beyond the scope of this lesson), you can select other job **queues** which provide additional flexibilty.
 
-Don't worry! We will spend much more time on command line arguments further along in the shell lesson.
+    Don't worry! We will spend much more time on command line arguments further along in the shell lesson.
 
-> ## How much time should I request?
->
-> Estimating how much compute time you need will come with experience and practice. By default, your session will last 2 hours.
-> It is best to request more time than you think you need; any unused time will be freed up for other users when you log out.
-{: .callout}
+    > ## How much time should I request?
+    >
+    > Estimating how much compute time you need will come with experience and practice. By default, your session will last 2 hours.
+    > It is best to request more time than you think you need; any unused time will be freed up for other users when you log out.
+    {: .callout}
 
 \* Running jobs on Itasca or Mesabi will consume Service Units (SU's) from your principal investigator's annual SU allocation. More info can be found [here](https://www.msi.umn.edu/content/su-allocations).
 
