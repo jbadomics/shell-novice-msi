@@ -34,20 +34,19 @@ To establish an interactive SSH connection to an MSI lab node, complete the foll
 
 1.  *  **Windows users:** With PuTTY configured, complete steps 9-11 from [these instructions](https://www.msi.umn.edu/support/faq/how-do-i-configure-putty-connect-msi-unix-systems). When prompted, enter your X.500 and password.
     *  **Mac/Linux users:** In Terminal, type
-
-~~~
-$ ssh username@login.msi.umn.edu
-~~~
-{: .bash}
+    ~~~
+    $ ssh username@login.msi.umn.edu
+    ~~~
+    {: .bash}
     
-where `username` is your X.500. Enter your password when prompted. Type `yes` if prompted to add an RSA fingerprint.
+    where `username` is your X.500. Enter your password when prompted. Type `yes` if prompted to add an RSA fingerprint.
 
-> ## Why can't I see my password?!
->
-> When connecting to a remove computer via SSH, the cursor will not move, blink, or show hidden characters when you type your password.
-> Don't worry, your password is still being entered properly!
-> Simply type Enter/Return and if you mistyped your password you will be re-prompted for it.
-{: .callout}
+    > ## Why can't I see my password?!
+    >
+    > When connecting to a remove computer via SSH, the cursor will not move, blink, or show hidden characters when you type your password.
+    > Don't worry, your password is still being entered properly!
+    > Simply type Enter/Return and if you mistyped your password you will be re-prompted for it.
+    {: .callout}
 
 If you have logged in properly, you should see a welcome message, followed by a command prompt that looks similar to this:
 
