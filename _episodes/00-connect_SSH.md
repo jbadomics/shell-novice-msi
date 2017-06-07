@@ -32,7 +32,7 @@ Most of the time, you will use a command line interface (CLI; topic of this less
 
 To establish an interactive SSH connection to an MSI lab node, complete the following three steps:
 
-1.  Connect to MSI via SSH
+1.  **Connect to MSI via SSH**
 
     *  **Windows users:** With PuTTY configured, complete steps 9-11 from [these instructions](https://www.msi.umn.edu/support/faq/how-do-i-configure-putty-connect-msi-unix-systems). When prompted, enter your X.500 and password.
     *  **Mac/Linux users:** In Terminal, type
