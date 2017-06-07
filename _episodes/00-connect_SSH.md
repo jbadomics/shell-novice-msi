@@ -34,6 +34,7 @@ To establish an interactive SSH connection to an MSI lab node, complete the foll
 
 1.  *  **Windows users:** With PuTTY configured, complete steps 9-11 from [these instructions](https://www.msi.umn.edu/support/faq/how-do-i-configure-putty-connect-msi-unix-systems). When prompted, enter your X.500 and password.
     *  **Mac/Linux users:** In Terminal, type
+    
     ~~~
     $ ssh username@login.msi.umn.edu
     ~~~
@@ -48,24 +49,24 @@ To establish an interactive SSH connection to an MSI lab node, complete the foll
     > Simply type Enter/Return and if you mistyped your password you will be re-prompted for it.
     {: .callout}
 
-If you have logged in properly, you should see a welcome message, followed by a command prompt that looks similar to this:
+    If you have logged in properly, you should see a welcome message, followed by a command prompt that looks similar to this:
+    
+    ~~~
+    jbadalam@login02 [~] % 
+    ~~~
+    {: .output}
 
-~~~
-jbadalam@login02 [~] % 
-~~~
-{: .output}
+    For novice shell users, the command prompt may look intimidating, but there's quite a bit of useful information embedded there. Let's break it down:
 
-For novice shell users, the command prompt may look intimidating, but there's quite a bit of useful information embedded there. Let's break it down:
+    *   `jbadalam` is my username
+    *   I am currently connected to a **login node**, whose purpose is exactly what it sounds like. Think of a login node as a staging or holding area that allows you to access other MSI nodes.
+    *   The tilde (`~`) in square brackets shows that I am in my home directory, which will be covered later in this lesson.
+    *   The % sign separates the command prompt from commands you will type. Sometimes this will be a dollar sign ($). In either case, this sign tells you that you are logged in as a normal user. 
 
-*   `jbadalam` is my username
-*   I am currently connected to a **login node**, whose purpose is exactly what it sounds like. Think of a login node as a staging or holding area that allows you to access other MSI nodes.
-*   The tilde (`~`) in square brackets shows that I am in my home directory, which will be covered later in this lesson.
-*   The % sign separates the command prompt from commands you will type. Sometimes this will be a dollar sign ($). In either case, this sign tells you that you are logged in as a normal user. 
-
-> ## Going forward
->
-> **NOTE:** From this point forward, all commands and instructions in this lesson apply to all learners regardless of their local machine's underlying operating system (Mac, Windows, or Linux).
-{: .callout}
+    > ## Going forward
+    >
+    > **NOTE:** From this point forward, all commands and instructions in this lesson apply to all learners regardless of their local machine's underlying operating system (Mac, Windows, or Linux).
+    {: .callout}
 
 2.  Within your existing SSH connection to the login node, type
 
