@@ -3,13 +3,13 @@
 #------------------------------------------------------------
 
 # Which carpentry is this ("swc" or "dc")?
-carpentry: "swc"
+carpentry: "dc"
 
 # Overall title for pages.
 title: "The Unix Shell"
 
 # Contact email address.
-email: lessons@software-carpentry.org
+email: jonb@umn.edu
 
 #------------------------------------------------------------
 # Generic settings (should not need to change).
@@ -20,7 +20,7 @@ kind: "lesson"
 
 # Magic to make URLs resolve both locally and on GitHub.
 # See https://help.github.com/articles/repository-metadata-on-github-pages/.
-repository: <USERNAME>/<PROJECT>
+repository: jbadomics/shell-novice-umn
 
 # Sites.
 amy_site: "https://amy.software-carpentry.org/workshops"
@@ -31,16 +31,16 @@ swc_pages: "https://swcarpentry.github.io"
 template_repo: "https://github.com/swcarpentry/styles"
 example_repo: "https://github.com/swcarpentry/lesson-example"
 example_site: "https://swcarpentry.github.com/lesson-example"
-workshop_repo: "https://github.com/swcarpentry/workshop-template"
-workshop_site: "https://swcarpentry.github.io/workshop-template"
+workshop_repo: "https://github.com/ashander/2017-06-08-QuARRC-UMN"
+workshop_site: "http://www.ashander.info/2017-06-08-QuARRC-UMN/"
 training_site: "https://swcarpentry.github.io/instructor-training"
 
 # Surveys.
-pre_survey: "https://www.surveymonkey.com/r/swc_pre_workshop_v1?workshop_id="
-post_survey: "https://www.surveymonkey.com/r/swc_post_workshop_v1?workshop_id="
+pre_survey: "https://www.surveymonkey.com/r/dc_pre_workshop_v1"
+post_survey: "https://www.surveymonkey.com/r/dc_pre_workshop_v1"
 
 # Start time in minutes (0 to be clock-independent, 540 to show a start at 09:00 am)
-start_time: 0
+start_time: 780
 
 # Specify that things in the episodes collection should be output.
 collections:
