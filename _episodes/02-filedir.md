@@ -206,7 +206,7 @@ your home directory to start.
 First, let's download the data files we will be working with in this lesson. Type the following (you can copy-paste here, but here only!)
 
 ~~~
-$ wget https://github.com/jbadomics/shell-novice-msi/blob/gh-pages/shell_msi_data.tar.gz
+$ curl -L -O https://github.com/jbadomics/shell-novice-msi/raw/gh-pages/shell_msi_data.tar.gz
 ~~~
 {: .bash}
 
@@ -217,7 +217,7 @@ $ tar -xvzf shell_msi_data.tar.gz
 ~~~
 {: .bash}
 
-Don't worry about this command for now; we simply executed the shell command `wget` followed by the URL to a zipped file containing all the data files we need for this lesson.
+Don't worry about this command for now; we simply executed the shell command `curl` followed by two arguments as well as the URL to a zipped file containing all the data files we need for this lesson.
 Then, we extracted this file with the command `tar`. 
 **BONUS POINTS** if you know what `tar` stands for!
 
