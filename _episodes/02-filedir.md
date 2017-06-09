@@ -130,7 +130,7 @@ i.e.,
 the directory that the computer assumes we want to run commands in
 unless we explicitly specify something else.
 Here,
-the computer's response is `/home/bonddr/jbadalam`,
+the computer's response is `/home/sheikc/jbadalam`,
 which is Jon's **home directory**:
 
 ~~~
@@ -139,7 +139,7 @@ $ pwd
 {: .bash}
 
 ~~~
-/home/bonddr/jbadalam
+/home/sheikc/jbadalam
 ~~~
 {: .output}
 
@@ -167,7 +167,7 @@ On MSI systems, the filesystem looks like this:
 At the top is the **root directory**
 that holds everything else.
 We refer to it using a slash character `/` on its own;
-this is the leading slash in `/home/bonddr/jbadalam`.
+this is the leading slash in `/home/sheikc/jbadalam`.
 
 Inside the root directory are several other directories:
 `bin` (which is where some built-in programs are stored),
@@ -176,12 +176,12 @@ Inside the root directory are several other directories:
 `tmp` (for temporary files that don't need to be stored long-term),
 and so on.  
 
-We know that our current working directory `/home/bonddr/jbadalam` is stored inside `/home`
+We know that our current working directory `/home/sheikc/jbadalam` is stored inside `/home`
 because `/home` is the first part of its name.
 Similarly,
 we know that `/home` is stored inside the root directory `/`
 because its name begins with `/`.
-Finally, we know that `jbadalam` is stored in the parent directory `/home/bonddr`.
+Finally, we know that `jbadalam` is stored in the parent directory `/home/sheikc`.
 
 > ## Slashes
 >
@@ -191,19 +191,19 @@ Finally, we know that `jbadalam` is stored in the parent directory `/home/bonddr
 > it's just a separator.
 {: .callout}
 
-Underneath `/home/bonddr`,
-we find one directory for each user with an account on in Jon's PI's group (Daniel Bond). There are several users in this group.  
+Underneath `/home/sheikc`,
+we find one directory for each user with an account on in this particular PI's group (Cody Sheik). There are several users in this group.  
 
 ![Home Directories](../fig/home-directories.svg)
 
-Daniel's files are stored in `/home/bonddr/dbond`,
-and my colleagues' files are in, for example, `/home/bonddr/cchan`.
+Cody's files are stored in `/home/sheikc/cssheik`,
+and his colleagues' files are in, for example, `/home/sheikc/jrsieber`.
 Because Jon is the user in our
-examples here, this is why we get `/home/bonddr/jbadam` as our home directory.  
+examples here, this is why we get `/home/sheikc/jbadalam` as our home directory.  
 Typically, when you open a new command prompt you will be in
 your home directory to start.  
 
-First, let's download the data files we will be working with in this lesson. Type
+First, let's download the data files we will be working with in this lesson. Type the following (you can copy-paste here, but here only!)
 
 ~~~
 $ wget https://github.com/jbadomics/shell-novice-msi/blob/gh-pages/shell_msi_data.tar.gz
@@ -499,9 +499,9 @@ $ cd data
 These commands will move us from our home directory into
 the `data-shell` directory, then into the `data` directory.  `cd` doesn't print anything,
 but if we run `pwd` after it, we can see that we are now
-in `/home/bonddr/jbadalam/data-shell/data`.
+in `/home/sheikc/jbadalam/data-shell/data`.
 If we run `ls` without arguments now,
-it lists the contents of `/home/bonddr/jbadalam/data-shell/data`,
+it lists the contents of `/home/sheikc/jbadalam/data-shell/data`,
 because that's where we now are:
 
 ~~~
@@ -510,7 +510,7 @@ $ pwd
 {: .bash}
 
 ~~~
-/home/bonddr/jbadalam/data-shell/data`
+/home/sheikc/jbadalam/data-shell/data`
 ~~~
 {: .output}
 
@@ -558,7 +558,7 @@ $ cd ..
 or more succinctly,
 the **parent** of the current directory.
 Sure enough,
-if we run `pwd` after running `cd ..`, we're back in `/home/bonddr/jbadalam/data-shell`:
+if we run `pwd` after running `cd ..`, we're back in `/home/sheikc/jbadalam/data-shell`:
 
 ~~~
 $ pwd
@@ -566,7 +566,7 @@ $ pwd
 {: .bash}
 
 ~~~
-/home/bonddr/jbadalam/data-shell
+/home/sheikc/jbadalam/data-shell
 ~~~
 {: .output}
 
@@ -585,7 +585,7 @@ $ ls -F -a
 
 `-a` stands for "show all";
 it forces `ls` to show us file and directory names that begin with `.`,
-such as `..` (which, if we're in `/home/bonddr/jbadalam`, refers to the `/home/bonddr` directory)
+such as `..` (which, if we're in `/home/sheikc/jbadalam`, refers to the `/home/sheikc` directory)
 As you can see,
 it also displays another special directory that's just called `.`,
 which means "the current working directory".
@@ -612,8 +612,8 @@ equivalent to `ls -Fa`.
 > The special names `.` and `..` don't belong to `cd`;
 > they are interpreted the same way by every program.
 > For example,
-> if we are in `/home/bonddr/jbadalam`,
-> the command `ls ..` will give us a listing of `/home/bonddr`.
+> if we are in `/home/sheikc/jbadalam`,
+> the command `ls ..` will give us a listing of `/home/sheikc`.
 > When the meanings of the parts are the same no matter how they're combined,
 > programmers say they are **orthogonal**:
 > Orthogonal systems tend to be easier for people to learn
@@ -638,7 +638,7 @@ $ pwd
 {: .bash}
 
 ~~~
-/home/bonddr/jbadalam
+/home/sheikc/jbadalam
 ~~~
 {: .output}
 
@@ -650,7 +650,7 @@ three commands, but we can actually string together the list of directories
 to move to `data` in one step:
 
 ~~~
-$ cd /home/bonddr/jbadalam
+$ cd /home/sheikc/jbadalam
 ~~~
 {: .bash}
 
@@ -682,12 +682,12 @@ $ pwd
 {: .bash}
 
 ~~~
-/home/bonddr/jbadalam/data-shell/data
+/home/sheikc/jbadalam/data-shell/data
 ~~~
 {: .output}
 
 ~~~
-$ cd /home/bonddr/jbadalam/data-shell
+$ cd /home/sheikc/jbadalam/data-shell
 ~~~
 {: .bash}
 
