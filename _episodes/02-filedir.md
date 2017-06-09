@@ -1,7 +1,7 @@
 ---
 title: "Navigating Files and Directories"
-teaching: 30
-exercises: 0
+teaching: 35
+exercises: 10
 questions:
 - "How can I move around at the command line?"
 - "How can I see what files and directories I have?"
@@ -73,7 +73,7 @@ $ whoami
 {: .bash}
 
 ~~~
-nelle
+jbadalam
 ~~~
 {: .output}
 
