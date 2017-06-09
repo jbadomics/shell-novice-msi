@@ -31,7 +31,7 @@ $ pwd
 {: .bash}
 
 ~~~
-/Users/nelle/Desktop/data-shell
+/home/sheikc/jbadalam/data-shell
 ~~~
 {: .output}
 
@@ -230,7 +230,7 @@ $ pwd
 {: .bash}
 
 ~~~
-/Users/nelle/Desktop/data-shell/thesis
+/home/sheikc/jbadalam/data-shell/thesis
 ~~~
 {: .output}
 
@@ -302,7 +302,7 @@ $ pwd
 {: .bash}
 
 ~~~
-/Users/nelle/Desktop/data-shell
+/home/sheikc/jbadalam/data-shell
 ~~~
 {: .output}
 
@@ -345,7 +345,7 @@ quotes.txt
 ~~~
 {: .output}
 
-One has to be careful when specifying the target file name, since `mv` will
+One has to be careful when specifying the target file name, since, without additional environment configuration, `mv` will
 silently overwrite any existing file with the same name, which could
 lead to data loss. An additional flag, `mv -i` (or `mv --interactive`),
 can be used to make `mv` ask you for confirmation before overwriting.
