@@ -1,7 +1,7 @@
 ---
 title: "Working With Files and Directories"
-teaching: 15
-exercises: 0
+teaching: 20
+exercises: 10
 questions:
 - "How can I create, copy, and delete files and directories?"
 - "How can I edit files?"
@@ -222,7 +222,7 @@ $ ls
 {: .callout}
 
 Let's re-create that file
-and then move up one directory to `/Users/nelle/Desktop/data-shell` using `cd ..`:
+and then move up one directory to `/home/sheikc/jbadalam/data-shell` using `cd ..`:
 
 ~~~
 $ pwd
