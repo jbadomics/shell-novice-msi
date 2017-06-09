@@ -1,5 +1,5 @@
 ---
-title: "Loading and Running Pre-Installed Software on MSI"
+title: "Loading Modules"
 teaching: 15
 exercises: 5
 questions:
@@ -14,7 +14,7 @@ keypoints:
 - "`module load` locates a particular software package's module file and configures your MSI user environment to use that software."
 - "`module avail` prints a listing of all available modules on MSI systems."
 - "`module list` prints a listing of modules currently loaded in your user environment/interactive session."
-- "`module purge` will reset your session to defaults
+- "`module purge` will reset your session to defaults"
 - "Modules must be explicitly loaded each time you launch a session on MSI."
 - "For software you will use regularly, you can add `module load` statements to your user-specific Bash configuration file (`~/.bashrc`)."
 - "There is no limit to the number of modules you can have loaded, but occasionally some can conflict with each other. You can unload the offending modules with `module unload`"
