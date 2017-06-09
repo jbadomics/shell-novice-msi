@@ -4,15 +4,12 @@ title: Setup
 permalink: /setup/
 ---
 
-You need to download some files to follow this lesson:
+Since we will be connecting remotely to MSI's compute nodes and working through this lesson there, there is minimal setup required on your local machine. 
 
-1. Download [shell-novice-data.zip]({{ page.root }}/data/shell-novice-data.zip) and move the file to your Desktop.
-2. Unzip/extract the file (ask your instructor if you need help with this step). You should end up with a new folder called data-shell on your Desktop.
-3. Open a terminal and type:
+**Windows users:**
+1. Follow the steps [here](https://www.msi.umn.edu/support/faq/how-do-i-configure-putty-connect-msi-unix-systems) to download and configure PuTTY. **YOU CAN SKIP THE OPTIONAL STEPS**
 
-~~~
-$ cd
-~~~
-{: .bash}
+**Mac and Linux users:**
+1. Launch Terminal by going to Applications -> Utilities -> Terminal (Mac OS X) or launch terminal by searching available applications (Linux).
 
-In the lesson, you will find out how to access the data in this folder.  
+All users will need an MSI account to complete this lesson.
