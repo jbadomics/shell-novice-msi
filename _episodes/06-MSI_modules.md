@@ -1,5 +1,5 @@
 ---
-title: "Loading Modules"
+title: "Loading Pre-Installed Software Modules on MSI"
 teaching: 15
 exercises: 5
 questions:
