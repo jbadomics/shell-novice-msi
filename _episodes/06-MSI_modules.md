@@ -14,7 +14,7 @@ keypoints:
 - "`module load` locates a particular software package's module file and configures your MSI user environment to use that software."
 - "`module avail` prints a listing of all available modules on MSI systems."
 - "`module list` prints a listing of modules currently loaded in your user environment/interactive session."
-- "`module purge` will reset your session to defaults"
+- "`module purge` will unload all modules"
 - "Modules must be explicitly loaded each time you launch a session on MSI."
 - "For software you will use regularly, you can add `module load` statements to your user-specific Bash configuration file (`~/.bashrc`)."
 - "There is no limit to the number of modules you can have loaded, but occasionally some can conflict with each other. You can unload the offending modules with `module unload`"
@@ -38,7 +38,7 @@ which: no R in (/usr/local/bin:/home/sheikc/jbadalam/.local/bin:.:/bin:/usr/bin)
 ~~~
 {: .error}
 
-`which` is actually a program that the shell runs to scan your $PATH for the executable/program you intend to run. If that program is not in your $PATH, you will receive an error as above.
+`which` is actually a program that the shell runs to scan your `$PATH` for the executable/program you intend to run. If that program is not in your `$PATH`, you will receive an error as above.
 
 Navigate to [MSI's software listing page](https://www.msi.umn.edu/software) and type R in the search box. You should see an expanding list on the left with dozens of options. Are there really that many flavors of R?
 
@@ -91,7 +91,7 @@ What happened here?! While only asked the shell to load R, R has several (in thi
 A few of these dependencies are worth having loaded, and so I'll call them out by name:
 
 *   `gcc` is the GNU compiler collection, which is required for compiling C/C++/fortran code. This is essential when installing R packages.
-*   `gmp`, `mpfr`, `mpc`, and `isl` are dependences for `gcc
+*   `gmp`, `mpfr`, `mpc`, and `isl` are dependences for `gcc`
 *   `zlib` is the library required for reading, writing, and manipulating compressed files. `bzip2` is similar to `zlib` but works with `.bz2` compressed files.
 *   `pcre` stands for Perl-compatible regular expressions
 
@@ -127,7 +127,7 @@ but the second example is more reliable. Since it's likely that a new R version 
 > {: .bash}
 >
 > ~~~
-> /usr/bin/python
+> /usr/bin/python  ##this is the system-wide python
 > Python 2.6.6
 > ~~~
 > {: .output}
@@ -144,3 +144,4 @@ but the second example is more reliable. Since it's likely that a new R version 
 > ~~~
 > {: .output}
 {: .callout}
+
