@@ -1,11 +1,11 @@
 ---
 title: "Navigating Files and Directories"
-teaching: 15
+teaching: 30
 exercises: 0
 questions:
-- "How can I move around on my computer?"
+- "How can I move around at the command line?"
 - "How can I see what files and directories I have?"
-- "How can I specify the location of a file or directory on my computer?"
+- "How can I specify the location of a file or directory on a remote computer?"
 objectives:
 - "Explain the similarities and differences between a file and a directory."
 - "Translate an absolute path into a relative path and vice versa."
@@ -114,7 +114,7 @@ More specifically, when we type `whoami` the shell:
 > ~~~
 > {: .error}
 > 
-> The Shell (Bash) tells you that it cannot find the program `mycommand`
+> The Bourne Again Shell (Bash) tells you that it cannot find the program `mycommand`
 > because the program you are trying to run does not exist on your computer.
 > We will touch quite a few commands in the course of this tutorial, but there
 > are actually many more than we can cover here.
@@ -130,8 +130,8 @@ i.e.,
 the directory that the computer assumes we want to run commands in
 unless we explicitly specify something else.
 Here,
-the computer's response is `/Users/nelle`,
-which is Nelle's **home directory**:
+the computer's response is `/home/bonddr/jbadalam`,
+which is Jon's **home directory**:
 
 ~~~
 $ pwd
@@ -139,16 +139,15 @@ $ pwd
 {: .bash}
 
 ~~~
-/Users/nelle
+/home/bonddr/jbadalam
 ~~~
 {: .output}
 
 > ## Home Directory Variation
 >
 > The home directory path will look different on different operating systems.
-> On Linux it may look like `/home/nelle`,
-> and on Windows it will be similar to `C:\Documents and Settings\nelle` or
-> `C:\Users\nelle`.  
+> On Linux, which is the operating system for MSI nodes, it will look like `/home/pi_name/username`,
+> and on a Mac it will look like `/Users/nelle`.  
 > (Note that it may look slightly different for different versions of Windows.)
 > In future examples, we've used Mac output as the default - Linux and Windows
 > output may differ slightly, but should be generally similar.  
@@ -157,31 +156,32 @@ $ pwd
 To understand what a "home directory" is,
 let's have a look at how the file system as a whole is organized.  For the
 sake of example, we'll be
-illustrating the filesystem on our scientist Nelle's computer.  After this
-illustration, you'll be learning commands to explore your own filesystem,
+illustrating the filesystem on our scientist Nelle's MSI environment/workspace.  After this
+illustration, you'll be learning commands to explore your own filesystem on MSI,
 which will be constructed in a similar way, but not be exactly identical.  
 
-On Nelle's computer, the filesystem looks like this:
+On MSI systems, the filesystem looks like this:
 
 ![The File System](../fig/filesystem.svg)
 
 At the top is the **root directory**
 that holds everything else.
 We refer to it using a slash character `/` on its own;
-this is the leading slash in `/Users/nelle`.
+this is the leading slash in `/home/bonddr/jbadalam`.
 
-Inside that directory are several other directories:
+Inside the root directory are several other directories:
 `bin` (which is where some built-in programs are stored),
-`data` (for miscellaneous data files),
-`Users` (where users' personal directories are located),
+`scratch` (for **temporary** storage of large and/or shared files),
+`home` (where all MSI users' personal directories are located),
 `tmp` (for temporary files that don't need to be stored long-term),
 and so on.  
 
-We know that our current working directory `/Users/nelle` is stored inside `/Users`
-because `/Users` is the first part of its name.
+We know that our current working directory `/home/bonddr/jbadalam` is stored inside `/home`
+because `/home` is the first part of its name.
 Similarly,
-we know that `/Users` is stored inside the root directory `/`
+we know that `/home` is stored inside the root directory `/`
 because its name begins with `/`.
+Finally, we know that `jbadalam` is stored in the parent directory `/home/bonddr`.
 
 > ## Slashes
 >
@@ -191,18 +191,35 @@ because its name begins with `/`.
 > it's just a separator.
 {: .callout}
 
-Underneath `/Users`,
-we find one directory for each user with an account on Nelle's machine,
-her colleagues the Mummy and Wolfman.  
+Underneath `/home/bonddr`,
+we find one directory for each user with an account on in Jon's PI's group (Daniel Bond). There are several users in this group.  
 
 ![Home Directories](../fig/home-directories.svg)
 
-The Mummy's files are stored in `/Users/imhotep`,
-Wolfman's in `/Users/larry`,
-and Nelle's in `/Users/nelle`.  Because Nelle is the user in our
-examples here, this is why we get `/Users/nelle` as our home directory.  
+Daniel's files are stored in `/home/bonddr/dbond`,
+and my colleagues' files are in, for example, `/home/bonddr/cchan`.
+Because Jon is the user in our
+examples here, this is why we get `/home/bonddr/jbadam` as our home directory.  
 Typically, when you open a new command prompt you will be in
 your home directory to start.  
+
+First, let's download the data files we will be working with in this lesson. Type
+
+~~~
+$ wget https://github.com/jbadomics/shell-novice-msi/blob/gh-pages/shell_msi_data.tar.gz
+~~~
+{: .bash}
+
+Then, extract the tarball with
+
+~~~
+$ tar -xvzf shell_msi_data.tar.gz
+~~~
+{: .bash}
+
+Don't worry about this command for now; we simply executed the shell command `wget` followed by the URL to a zipped file containing all the data files we need for this lesson.
+Then, we extracted this file with the command `tar`. 
+**BONUS POINTS** if you know what `tar` stands for!
 
 Now let's learn the command that will let us see the contents of our
 own filesystem.  We can see what's in our home directory by running `ls`,
@@ -214,13 +231,11 @@ $ ls
 {: .bash}
 
 ~~~
-Applications Documents    Library      Music        Public
-Desktop      Downloads    Movies       Pictures
+data-shell
 ~~~
 {: .output}
 
-(Again, your results may be slightly different depending on your operating
-system and how you have customized your filesystem.)
+(Again, your results may be slightly different depending on how you have customized your filesystem. If you have worked on MSI systems before, you will see other directories listed.)
 
 `ls` prints the names of the files and directories in the current directory in
 alphabetical order,
@@ -234,8 +249,7 @@ $ ls -F
 {: .bash}
 
 ~~~
-Applications/ Documents/    Library/      Music/        Public/
-Desktop/      Downloads/    Movies/       Pictures/
+data-shell/
 ~~~
 {: .output}
 
@@ -391,21 +405,6 @@ For more information on how to use `ls` we can type `man ls`.
 it prints a description of a command and its options,
 and (if you're lucky) provides a few examples of how to use it.
 
-> ## `man` and Git for Windows
->
-> The bash shell provided by Git for Windows does not
-> support the `man` command. Doing a web search for
-> `unix man page COMMAND` (e.g. `unix man page grep`)
-> provides links to numerous copies of the Unix manual
-> pages online.
-> For example, GNU provides links to its
-> [manuals](http://www.gnu.org/manual/manual.html):
-> these include [grep](http://www.gnu.org/software/grep/manual/),
-> and the
-> [core GNU utilities](http://www.gnu.org/software/coreutils/manual/coreutils.html),
-> which covers many commands introduced within this lesson.
-{: .callout}
-
 To navigate through the `man` pages,
 you may use the up and down arrow keys to move line-by-line,
 or try the "b" and spacebar keys to skip up and down by full page.
@@ -432,19 +431,19 @@ which doesn't exist.
 {: .callout}
 
 We can also use `ls` to see the contents of a different directory.  Let's take a
-look at our `Desktop` directory by running `ls -F Desktop`,
+look at the `/opt` directory by running `ls -F /opt`,
 i.e.,
-the command `ls` with the **arguments** `-F` and `Desktop`.
+the command `ls` with the **arguments** `-F` and `/opt`.
 The second argument --- the one *without* a leading dash --- tells `ls` that
 we want a listing of something other than our current working directory:
 
 ~~~
-$ ls -F Desktop
+$ ls -F /opt
 ~~~
 {: .bash}
 
 ~~~
-data-shell/
+Adobe/  dell/  moab/  msi/  pconn/  qsub/  splunkforwarder/  VirtualGL/
 ~~~
 {: .output}
 
@@ -467,7 +466,7 @@ First, we can look at its contents, using the same strategy as before, passing
 a directory name to `ls`:
 
 ~~~
-$ ls -F Desktop/data-shell
+$ ls -F data-shell
 ~~~
 {: .bash}
 
@@ -492,18 +491,17 @@ Let's say we want to move to the `data` directory we saw above.  We can
 use the following series of commands to get there:
 
 ~~~
-$ cd Desktop
 $ cd data-shell
 $ cd data
 ~~~
 {: .bash}
 
-These commands will move us from our home directory onto our Desktop, then into
+These commands will move us from our home directory into
 the `data-shell` directory, then into the `data` directory.  `cd` doesn't print anything,
 but if we run `pwd` after it, we can see that we are now
-in `/Users/nelle/Desktop/data-shell/data`.
+in `/home/bonddr/jbadalam/data-shell/data`.
 If we run `ls` without arguments now,
-it lists the contents of `/Users/nelle/Desktop/data-shell/data`,
+it lists the contents of `/home/bonddr/jbadalam/data-shell/data`,
 because that's where we now are:
 
 ~~~
@@ -512,7 +510,7 @@ $ pwd
 {: .bash}
 
 ~~~
-/Users/nelle/Desktop/data-shell/data
+/home/bonddr/jbadalam/data-shell/data`
 ~~~
 {: .output}
 
@@ -544,7 +542,7 @@ But we get an error!  Why is this?
 
 With our methods so far,
 `cd` can only see sub-directories inside your current directory.  There are
-different ways to see directories above your current location; we'll start
+different ways to see directories *above* your current location; we'll start
 with the simplest.  
 
 There is a shortcut in the shell to move up one directory level
@@ -560,7 +558,7 @@ $ cd ..
 or more succinctly,
 the **parent** of the current directory.
 Sure enough,
-if we run `pwd` after running `cd ..`, we're back in `/Users/nelle/Desktop/data-shell`:
+if we run `pwd` after running `cd ..`, we're back in `/home/bonddr/jbadalam/data-shell`:
 
 ~~~
 $ pwd
@@ -568,7 +566,7 @@ $ pwd
 {: .bash}
 
 ~~~
-/Users/nelle/Desktop/data-shell
+/home/bonddr/jbadalam/data-shell
 ~~~
 {: .output}
 
@@ -581,16 +579,13 @@ $ ls -F -a
 {: .bash}
 
 ~~~
-./                  creatures/          notes.txt
-../                 data/               pizza.cfg
-.bash_profile       molecules/          solar.pdf
-Desktop/            north-pacific-gyre/ writing/
+./  ../  .bashrc  .cshrc  existing_bashrc  .linuxbrew/  old_bashrc*  .profile@  .tcshrc
 ~~~
 {: .output}
 
 `-a` stands for "show all";
 it forces `ls` to show us file and directory names that begin with `.`,
-such as `..` (which, if we're in `/Users/nelle`, refers to the `/Users` directory)
+such as `..` (which, if we're in `/home/bonddr/jbadalam`, refers to the `/home/bonddr` directory)
 As you can see,
 it also displays another special directory that's just called `.`,
 which means "the current working directory".
@@ -604,7 +599,7 @@ equivalent to `ls -Fa`.
 > ## Other Hidden Files
 >
 > In addition to the hidden directories `..` and `.`, you may also see a file
-> called `.bash_profile`. This file usually contains shell configuration
+> called `.bashrc`. This file usually contains shell configuration
 > settings. You may also see other files and directories beginning
 > with `.`. These are usually files and directories that are used to configure
 > different programs on your computer. The prefix `.` is used to prevent these
@@ -617,8 +612,8 @@ equivalent to `ls -Fa`.
 > The special names `.` and `..` don't belong to `cd`;
 > they are interpreted the same way by every program.
 > For example,
-> if we are in `/Users/nelle/data`,
-> the command `ls ..` will give us a listing of `/Users/nelle`.
+> if we are in `/home/bonddr/jbadalam`,
+> the command `ls ..` will give us a listing of `/home/bonddr`.
 > When the meanings of the parts are the same no matter how they're combined,
 > programmers say they are **orthogonal**:
 > Orthogonal systems tend to be easier for people to learn
@@ -643,7 +638,7 @@ $ pwd
 {: .bash}
 
 ~~~
-/Users/nelle
+/home/bonddr/jbadalam
 ~~~
 {: .output}
 
@@ -655,7 +650,7 @@ three commands, but we can actually string together the list of directories
 to move to `data` in one step:
 
 ~~~
-$ cd Desktop/data-shell/data
+$ cd /home/bonddr/jbadalam
 ~~~
 {: .bash}
 
@@ -687,12 +682,12 @@ $ pwd
 {: .bash}
 
 ~~~
-/Users/nelle/Desktop/data-shell/data
+/home/bonddr/jbadalam/data-shell/data
 ~~~
 {: .output}
 
 ~~~
-$ cd /Users/nelle/Desktop/data-shell
+$ cd /home/bonddr/jbadalam/data-shell
 ~~~
 {: .bash}
 
